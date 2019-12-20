@@ -1,0 +1,27 @@
+<p>Log embryo</p>
+<div>
+    <form #logForm="ngForm">
+        {{logForm.value | json}}
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" #validTitle="ngModel" class="form-control" [(ngModel)]="log.title" name="logTitle">
+          <div>
+              <p>
+                  ...todo: validation
+              </p>
+          </div>
+        </div>
+        le titre dans log : {{log.title | json}}
+        
+
+        <div class="form-group">
+          <select class="custom-select"  #tag="ngModel" 
+          name="logTag" [(ngModel)]="log.tag">
+            <option value="default">choose a tag</option>
+            <option *ngFor="let tag of tags">{{ tag }}</option>
+          </select>    
+        </div>
+        le tag dans log: {{log.tag}}
+    
+      </form>
+</div>
