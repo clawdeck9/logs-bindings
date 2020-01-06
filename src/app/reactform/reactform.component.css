@@ -1,0 +1,8 @@
+.container-fluid {
+    margin-top: 33px;
+    width: 50%;
+  }
+  
+  input.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
