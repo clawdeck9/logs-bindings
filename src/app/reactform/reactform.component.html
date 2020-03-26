@@ -1,6 +1,6 @@
 <p>Log embryo</p>
 <div>
-  <form [formGroup]="logFormGroup" (ngSubmit)="submit()">
+  <form [formGroup]="logFormGroup" (ngSubmit)="submit()"> change this
     <div class="form-group">
       <label for="title">Title</label>
       <input type="text" id="title" formControlName="title" class="form-control">
@@ -9,13 +9,11 @@
     <div class="form-group">
       <label for="tagbeg">Tag</label>
       <input type="text" id="tagbeg" formControlName="tagbeg" class="form-control">
-      <span *ngIf="!logFormGroup.get('tagbeg').valid && logFormGroup.get('tagbeg').touched" class="help-block">
-        <span *ngIf="logFormGroup.get('tagbeg').errors['required']" class="help-block">
-          tag required
-        </span>
-        <span *ngIf="logFormGroup.get('tagbeg').errors['notATag'] && !logFormGroup.get('tagbeg').errors['required']"
-          class="help-block">
-          New tag will be created
+      <span *ngIf="logFormGroup.get('tagbeg').touched" class="help-block">
+        <span *ngIf="!logFormGroup.get('tagbeg').valid" >
+          <span *ngIf="logFormGroup.get('tagbeg').errors['required']">
+            tag required
+          </span>
         </span>
       </span>
     </div>
@@ -25,6 +23,7 @@
           {{filteredTags[i]}}
         </option>
       </select>
+      <span *ngIf="tagbeg!=='' && filteredTags.length===0">tag creation mode</span>
     </div>
     <button>submit</button>
   </form>
